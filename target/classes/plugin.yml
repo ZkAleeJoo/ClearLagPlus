@@ -1,0 +1,11 @@
+main: zk.ClearLagPlus.ClearLagPlus
+version: 2.0.1
+name: ClearLagPlus
+author: ZkAleeJoo
+api-version: 1.13
+
+commands:
+  clearlagplus:
+    description: Comando principal del plugin
+    aliases:
+      - clp

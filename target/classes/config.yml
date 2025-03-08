@@ -1,0 +1,19 @@
+#Cambia el prefix a tu gusto
+prefix: "&8[&eClearLagPlus&8]"
+
+#Edita la primera y segunda línea de los mensajes
+message1: "&aSe han eliminado un total de"
+message2: "&aentidades"
+
+#Tiempo en segundos
+time: 180
+
+#Activar o desactivar alertas (true o false)
+enable-alerts: true
+
+#MENSAJES ES - PUEDES CAMBIAR ESTA SECCIÓN A TU GUSTO
+reload-message: "&aEl plugin se cargo correctamente"
+no-permission: "&cNo tienes permiso de ejecutar ese mensaje"
+message-30seconds: "&aQuedan &c30 &asegundos para eliminar las entidades"
+no-message-console: "&cSolamente puedes usar este comando desde un user"
+message-version: "&cDebes utilizar &7/clearlagplus get version"
