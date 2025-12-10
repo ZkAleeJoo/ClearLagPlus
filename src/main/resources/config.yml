@@ -6,6 +6,11 @@ auto-clear:
   enabled: true
   interval: 300  # 5 minutes (300 seconds)
 
+# Entity limit per chunk (Anti-Farms)
+chunk-limit:
+  enabled: true
+  max: 50 # Maximum number of entities allowed per chunk
+
 # Plugin messages
 messages:
   warning:

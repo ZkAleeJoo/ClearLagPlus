@@ -2,7 +2,7 @@ package clp.zkaleejoo;
 
 import clp.zkaleejoo.commands.MainCommand;
 import clp.zkaleejoo.config.MainConfigManager;
-import clp.zkaleejoo.listeners.PlayerListener;
+import clp.zkaleejoo.listeners.EntityListener;
 import clp.zkaleejoo.managers.TaskManager;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
@@ -14,6 +14,7 @@ public class ClearLagPlus extends JavaPlugin {
     private String version = getDescription().getVersion();
     private MainConfigManager mainConfigManager;
     private TaskManager taskManager;
+    
 
     @Override
     public void onEnable() {
@@ -47,7 +48,7 @@ public class ClearLagPlus extends JavaPlugin {
     }
 
     public void registerEvents() {
-        getServer().getPluginManager().registerEvents(new PlayerListener(), this);
+        getServer().getPluginManager().registerEvents(new EntityListener(this), this);
     }
 
     public MainConfigManager getMainConfigManager() {

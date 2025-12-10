@@ -27,6 +27,8 @@ public class MainConfigManager {
     private String messageConsole;
     private String subcommandInvalid;
     private String subcommandSpecified;
+    private Boolean chunkLimitEnabled;
+    private Integer chunkLimitMax;
 
     public MainConfigManager(ClearLagPlus plugin){
         configFile = new CustomConfig("config.yml", null, plugin, false);
@@ -54,6 +56,10 @@ public class MainConfigManager {
         messageConsole = config.getString("messages.message-console");
         subcommandInvalid = config.getString("messages.subcommand-invalid");
         subcommandSpecified = config.getString("messages.subcommand-specified");
+
+        autoClearInterval = config.getInt("auto-clear.interval");
+        chunkLimitEnabled = config.getBoolean("chunk-limit.enabled");
+        chunkLimitMax = config.getInt("chunk-limit.max");
     }
 
     public void reloadConfig(){
@@ -80,4 +86,6 @@ public class MainConfigManager {
     public String getMessageConsole() { return messageConsole; }
     public String getSubcommandInvalid() { return subcommandInvalid; }
     public String getSubcommandSpecified() { return subcommandSpecified; }
+    public Boolean isChunkLimitEnabled() { return chunkLimitEnabled; }
+    public Integer getChunkLimitMax() { return chunkLimitMax; }
 }
