@@ -15,7 +15,6 @@ public class EntityClearer {
     private final MainConfigManager config;
 
     public EntityClearer(ClearLagPlus plugin) {
-        this.plugin = plugin;
         this.config = plugin.getMainConfigManager();
     }
 

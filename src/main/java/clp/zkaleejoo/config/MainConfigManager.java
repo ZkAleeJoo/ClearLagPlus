@@ -29,7 +29,6 @@ public class MainConfigManager {
     private String subcommandSpecified;
 
     public MainConfigManager(ClearLagPlus plugin){
-        this.plugin = plugin;
         configFile = new CustomConfig("config.yml", null, plugin, false);
         configFile.registerConfig();
         loadConfig();
