@@ -12,7 +12,6 @@ import java.util.List;
 
 public class EntityClearer {
 
-    private final ClearLagPlus plugin;
     private final MainConfigManager config;
 
     public EntityClearer(ClearLagPlus plugin) {

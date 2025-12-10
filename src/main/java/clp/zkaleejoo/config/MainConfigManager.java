@@ -8,7 +8,6 @@ import java.util.List;
 public class MainConfigManager {
 
     private CustomConfig configFile;
-    private ClearLagPlus plugin;
 
     private String prefix;
     private Boolean autoClearEnabled;
