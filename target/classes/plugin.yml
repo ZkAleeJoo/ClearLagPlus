@@ -1,0 +1,15 @@
+main: clp.zkaleejoo.ClearLagPlus
+version: 1.0.2
+name: ClearLagPlus
+author: ZkAleeJoo
+api-version: 1.20
+
+commands:
+  clearlagplus:
+    description: ClearLagPlus main command - reload, clear, get
+    aliases: [clp]
+
+permissions:
+  clearlagplus.admin:
+    description: Administrator permissions for ClearLagPlus
+    default: op
