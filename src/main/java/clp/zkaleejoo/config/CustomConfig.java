@@ -16,11 +16,11 @@ public class CustomConfig {
     private String folderName;
     private boolean newFile;
 
-    public CustomConfig(String fileName, String folderName, ClearLagPlus plugin){
-        this.fileName = fileName;
-        this.folderName = folderName;
-        this.plugin = plugin;
-        this.newFile = newFile;
+    public CustomConfig(String fileName, String folderName, ClearLagPlus plugin, boolean newFile) {
+    this.fileName = fileName;
+    this.folderName = folderName;
+    this.plugin = plugin;
+    this.newFile = newFile;
     }
 
     public String getPath(){
