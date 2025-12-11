@@ -5,6 +5,7 @@ import clp.zkaleejoo.utils.EntityClearer;
 import clp.zkaleejoo.utils.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
+import clp.zkaleejoo.utils.Lag;
 
 public class TaskManager {
 
@@ -24,7 +25,7 @@ public class TaskManager {
             taskId = new BukkitRunnable() {
                 @Override
                 public void run() {
-                    double currentTps = Bukkit.getServer().getTPS()[0];
+                    double currentTps = Lag.getTPS();
                     double minTps = plugin.getMainConfigManager().getAutoClearMinTps();
 
                     if (currentTps >= minTps) {
