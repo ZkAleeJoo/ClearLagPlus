@@ -2,7 +2,8 @@ d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\ClearLagPlus.java
 d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\commands\MainCommand.java
 d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\config\CustomConfig.java
 d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\config\MainConfigManager.java
-d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\listeners\PlayerListener.java
+d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\listeners\EntityListener.java
 d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\managers\TaskManager.java
 d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\utils\EntityClearer.java
+d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\utils\Lag.java
 d:\01. Proyectos\ClearLagPlus\src\main\java\clp\zkaleejoo\utils\MessageUtils.java
