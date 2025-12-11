@@ -24,6 +24,14 @@ public class TaskManager {
             taskId = new BukkitRunnable() {
                 @Override
                 public void run() {
+                    double currentTps = Bukkit.getServer().getTPS()[0];
+                    double minTps = plugin.getMainConfigManager().getAutoClearMinTps();
+
+                    if (currentTps >= minTps) {
+                        return; 
+                    }
+
+                    // Si el TPS es bajo, procedemos a limpiar
                     entityClearer.clearEntities(false, null);
                 }
             }.runTaskTimer(plugin,

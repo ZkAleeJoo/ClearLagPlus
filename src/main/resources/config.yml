@@ -5,6 +5,7 @@ general:
 auto-clear:
   enabled: true
   interval: 300  # 5 minutes (300 seconds)
+  min-tps: 18.5 # This measures when the autoclear will be performed
 
 # Entity limit per chunk (Anti-Farms)
 chunk-limit:

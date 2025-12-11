@@ -29,6 +29,7 @@ public class MainConfigManager {
     private String subcommandSpecified;
     private Boolean chunkLimitEnabled;
     private Integer chunkLimitMax;
+    private double autoClearMinTps;
 
     public MainConfigManager(ClearLagPlus plugin){
         configFile = new CustomConfig("config.yml", null, plugin, false);
@@ -60,6 +61,10 @@ public class MainConfigManager {
         autoClearInterval = config.getInt("auto-clear.interval");
         chunkLimitEnabled = config.getBoolean("chunk-limit.enabled");
         chunkLimitMax = config.getInt("chunk-limit.max");
+
+        autoClearEnabled = config.getBoolean("auto-clear.enabled");
+        autoClearInterval = config.getInt("auto-clear.interval");
+        autoClearMinTps = config.getDouble("auto-clear.min-tps", 18.5);
     }
 
     public void reloadConfig(){
@@ -88,4 +93,5 @@ public class MainConfigManager {
     public String getSubcommandSpecified() { return subcommandSpecified; }
     public Boolean isChunkLimitEnabled() { return chunkLimitEnabled; }
     public Integer getChunkLimitMax() { return chunkLimitMax; }
+    public double getAutoClearMinTps() { return autoClearMinTps; }
 }
