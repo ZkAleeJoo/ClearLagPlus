@@ -1,5 +1,5 @@
 main: clp.zkaleejoo.ClearLagPlus
-version: 1.0.3
+version: ${project.version}
 name: ClearLagPlus
 author: ZkAleeJoo
 api-version: 1.20
