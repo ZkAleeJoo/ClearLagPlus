@@ -11,7 +11,6 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class ClearLagPlus extends JavaPlugin {
 
     public static String prefix = "&8[&aClearLag&e+&8] ";
-    private String version = getDescription().getVersion();
     private MainConfigManager mainConfigManager;
     private TaskManager taskManager;
     
@@ -31,7 +30,7 @@ public class ClearLagPlus extends JavaPlugin {
                 " \\______  /____/\\___  >____  /__|  |_______ (____  /\\___  /   |____|   |____/____//____  >\n"+
                 "        \\/          \\/     \\/              \\/    \\//_____/                             \\/ \n");
         Bukkit.getConsoleSender().sendMessage(
-                ChatColor.translateAlternateColorCodes('&', prefix + "&fIt was activated correctly in the version &a" + version));
+                ChatColor.translateAlternateColorCodes('&', prefix + "&fIt was activated correctly in the version &a"));
     }
 
     @Override
