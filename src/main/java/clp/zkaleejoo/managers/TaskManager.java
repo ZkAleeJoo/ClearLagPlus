@@ -5,7 +5,6 @@ import clp.zkaleejoo.utils.EntityClearer;
 import clp.zkaleejoo.utils.MessageUtils;
 import org.bukkit.Bukkit;
 import org.bukkit.scheduler.BukkitRunnable;
-import clp.zkaleejoo.utils.Lag;
 
 public class TaskManager {
 
