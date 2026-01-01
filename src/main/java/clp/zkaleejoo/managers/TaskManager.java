@@ -19,35 +19,35 @@ public class TaskManager {
     }
 
     public void startTasks() {
-    if (plugin.getMainConfigManager().getAutoClearEnabled()) {
-        taskId = new BukkitRunnable() {
-            @Override
-            public void run() {
-                entityClearer.clearEntities(false, null);
-            }
-        }.runTaskTimer(plugin,
-                plugin.getMainConfigManager().getAutoClearInterval() * 20L,
-                plugin.getMainConfigManager().getAutoClearInterval() * 20L
-        ).getTaskId();
-    }
+        if (plugin.getMainConfigManager().getAutoClearEnabled()) {
+            taskId = new BukkitRunnable() {
+                @Override
+                public void run() {
+                    entityClearer.clearEntities(false, null);
+                }
+            }.runTaskTimer(plugin,
+                    plugin.getMainConfigManager().getAutoClearInterval() * 20L,
+                    plugin.getMainConfigManager().getAutoClearInterval() * 20L
+            ).getTaskId();
+        }
 
-    if (plugin.getMainConfigManager().getWarningEnabled()) {
-        int warningTime = plugin.getMainConfigManager().getWarningSecondsBefore();
-        long warningDelay = (plugin.getMainConfigManager().getAutoClearInterval() - warningTime) * 20L;
+        if (plugin.getMainConfigManager().getWarningEnabled()) {
+            int warningTime = plugin.getMainConfigManager().getWarningSecondsBefore();
+            long warningDelay = (plugin.getMainConfigManager().getAutoClearInterval() - warningTime) * 20L;
 
-        warningTaskId = new BukkitRunnable() {
-            @Override
-            public void run() {
-                String message = plugin.getMainConfigManager().getWarningMessage()
-                        .replace("{time}", String.valueOf(warningTime));
-                Bukkit.broadcastMessage(MessageUtils.getColoredMessage(
-                        plugin.getMainConfigManager().getPrefix() + message));
-            }
-        }.runTaskTimer(plugin, warningDelay,
-                plugin.getMainConfigManager().getAutoClearInterval() * 20L
-        ).getTaskId();
+            warningTaskId = new BukkitRunnable() {
+                @Override
+                public void run() {
+                    String message = plugin.getMainConfigManager().getWarningMessage()
+                            .replace("{time}", String.valueOf(warningTime));
+                    Bukkit.broadcastMessage(MessageUtils.getColoredMessage(
+                            plugin.getMainConfigManager().getPrefix() + message));
+                }
+            }.runTaskTimer(plugin, warningDelay,
+                    plugin.getMainConfigManager().getAutoClearInterval() * 20L
+            ).getTaskId();
+        }
     }
-}
 
     public void stopTasks() {
         if (taskId != -1) Bukkit.getScheduler().cancelTask(taskId);
