@@ -62,7 +62,7 @@ public class MainConfigManager {
         chunkLimitEnabled = config.getBoolean("chunk-limit.enabled");
         chunkLimitMax = config.getInt("chunk-limit.max");
         updateCheckEnabled = config.getBoolean("general.update-check", true);
-        msgUpdateAvailable = config.getString("messages.update-available", "&e¡Nueva versión disponible! &b{version}");
+        msgUpdateAvailable = config.getString("messages.update-available");
     }
 
     public void reloadConfig(){
