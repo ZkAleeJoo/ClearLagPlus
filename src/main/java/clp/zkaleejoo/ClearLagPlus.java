@@ -15,7 +15,7 @@ public class ClearLagPlus extends JavaPlugin {
     public static String prefix = "&8[&aClearLag&e+&8] ";
     private MainConfigManager mainConfigManager;
     private TaskManager taskManager;
-    
+    private String latestVersion;
 
     @Override
     public void onEnable() {
@@ -25,6 +25,7 @@ public class ClearLagPlus extends JavaPlugin {
         regsterCommands();
         registerEvents();
         mainConfigManager = new MainConfigManager(this);
+        checkUpdates();
         taskManager = new TaskManager(this);
         taskManager.startTasks();
 
@@ -62,4 +63,18 @@ public class ClearLagPlus extends JavaPlugin {
     public TaskManager getTaskManager() {
         return taskManager;
     }
+
+    private void checkUpdates() {
+    if (!mainConfigManager.isUpdateCheckEnabled()) return;
+    new clp.zkaleejoo.utils.UpdateChecker(this, 122239).getVersion(version -> {
+        if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+            getLogger().info("You are using the latest version!");
+        } else {
+            this.latestVersion = version;
+            getLogger().warning("A new version is available: " + version);
+        }
+    });
+}
+
+    public String getLatestVersion() { return latestVersion; }
 }

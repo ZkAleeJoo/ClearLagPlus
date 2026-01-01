@@ -1,6 +1,6 @@
 general:
   prefix: "&8[&fClearLag&e+&8] " # IT IS RECOMMENDED TO LEAVE A SPACE AFTER THE PREFIX :)
-
+  update-check: true
 # Time in seconds between each automatic clear
 auto-clear:
   enabled: true
@@ -13,6 +13,7 @@ chunk-limit:
 
 # Plugin messages
 messages:
+  update-available: "&eA new version of ClearLag is available! (&b{version}&e)"
   warning:
     enabled: true
     seconds-before: 10  # Warn 10 seconds before
