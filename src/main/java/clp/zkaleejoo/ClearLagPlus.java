@@ -4,6 +4,8 @@ import clp.zkaleejoo.commands.MainCommand;
 import clp.zkaleejoo.config.MainConfigManager;
 import clp.zkaleejoo.listeners.EntityListener;
 import clp.zkaleejoo.managers.TaskManager;
+
+import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.plugin.java.JavaPlugin;
@@ -17,6 +19,9 @@ public class ClearLagPlus extends JavaPlugin {
 
     @Override
     public void onEnable() {
+        int pluginId = 28645;
+        Metrics metrics = new Metrics(this, pluginId); 
+        
         regsterCommands();
         registerEvents();
         mainConfigManager = new MainConfigManager(this);
