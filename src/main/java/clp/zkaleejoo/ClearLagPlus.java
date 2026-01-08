@@ -29,14 +29,14 @@ public class ClearLagPlus extends JavaPlugin {
         taskManager = new TaskManager(this);
         taskManager.startTasks();
 
-        Bukkit.getConsoleSender().sendMessage("_________ .__                      .____                     __________.__                \n"+
-                "\\_   ___ \\|  |   ____ _____ _______|    |   _____     ____   \\______   \\  |  __ __  ______\n"+
-                "/    \\  \\/|  | _/ __ \\\\__  \\\\_  __ \\    |   \\__  \\   / ___\\   |     ___/  | |  |  \\/  ___/\n"+
-                "\\     \\___|  |_\\  ___/ / __ \\|  | \\/    |___ / __ \\_/ /_/  >  |    |   |  |_|  |  /\\___ \\ \n"+
-                " \\______  /____/\\___  >____  /__|  |_______ (____  /\\___  /   |____|   |____/____//____  >\n"+
-                "        \\/          \\/     \\/              \\/    \\//_____/                             \\/ \n");
-        Bukkit.getConsoleSender().sendMessage(
-                ChatColor.translateAlternateColorCodes('&', prefix + "&fIt was activated correctly in the version &a"));
+        Bukkit.getConsoleSender().sendMessage(ChatColor.translateAlternateColorCodes('&', prefix + "&fIt was activated correctly in the version &a"));
+
+        Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW+"_________ .__                      .____                  __________.__                ");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW+"\\_   ___ \\|  |   ____ _____ _______|    |   _____     ____\\______   \\  |  __ __  ______");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW+"/    \\  \\/|  | _/ __ \\\\__  \\\\_  __ \\    |   \\__  \\   / ___\\|     ___/  | |  |  \\/  ___/");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW+"\\     \\___|  |_\\  ___/ / __ \\|  | \\/    |___ / __ \\_/ /_/  >    |   |  |_|  |  /\\___ \\ ");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW+" \\______  /____/\\___  >____  /__|  |_______ (____  /\\___  /|____|   |____/____//____  >");
+        Bukkit.getConsoleSender().sendMessage(ChatColor.YELLOW+"        \\/          \\/     \\/              \\/    \\//_____/                          \\/ ");
     }
 
     @Override
