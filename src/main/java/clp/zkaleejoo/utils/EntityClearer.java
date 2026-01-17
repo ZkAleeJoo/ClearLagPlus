@@ -31,16 +31,14 @@ public class EntityClearer {
             }
         }
 
-        // Enviar mensaje de limpieza completada
         if (isManual) {
             String message = config.getManualClearMessage()
                     .replace("{player}", sender.getName())
                     .replace("{count}", String.valueOf(removedCount));
-            Bukkit.broadcastMessage(MessageUtils.getColoredMessage(config.getPrefix() + message));
+            MessageUtils.broadcastToPlayersOnly(config.getPrefix() + message);
         } else {
             for (String line : config.getCompletedMessage()) {
-                Bukkit.broadcastMessage(MessageUtils.getColoredMessage(
-                        config.getPrefix() + line.replace("{count}", String.valueOf(removedCount))));
+                MessageUtils.broadcastToPlayersOnly(config.getPrefix() + line.replace("{count}", String.valueOf(removedCount)));
             }
         }
 
@@ -53,17 +51,14 @@ public class EntityClearer {
     }
 
     private boolean shouldRemoveEntity(Entity entity) {
-        // Verificar tipo de entidad
         if (!config.getEntitiesTypes().contains(entity.getType().name())) {
             return false;
         }
 
-        // Verificar exclusiones
         if (config.getEntitiesExclude().contains(entity.getType().name())) {
             return false;
         }
 
-        // Verificar items con nombre
         if (config.getEntitiesIgnoreNamedItems() && entity instanceof Item) {
             Item item = (Item) entity;
             ItemStack itemStack = item.getItemStack();
@@ -73,7 +68,6 @@ public class EntityClearer {
             }
         }
 
-        // Verificar distancia desde spawn
         if (config.getEntitiesMinDistanceFromSpawn() > 0) {
             Location spawn = entity.getWorld().getSpawnLocation();
             if (entity.getLocation().distanceSquared(spawn) <

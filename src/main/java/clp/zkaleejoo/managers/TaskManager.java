@@ -40,8 +40,7 @@ public class TaskManager {
                 public void run() {
                     String message = plugin.getMainConfigManager().getWarningMessage()
                             .replace("{time}", String.valueOf(warningTime));
-                    Bukkit.broadcastMessage(MessageUtils.getColoredMessage(
-                            plugin.getMainConfigManager().getPrefix() + message));
+                    MessageUtils.broadcastToPlayersOnly(plugin.getMainConfigManager().getPrefix() + message);
                 }
             }.runTaskTimer(plugin, warningDelay,
                     plugin.getMainConfigManager().getAutoClearInterval() * 20L

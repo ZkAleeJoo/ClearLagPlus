@@ -23,7 +23,6 @@ public class MainCommand implements CommandExecutor, TabCompleter {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String alias, String[] args) {
 
-        //COMANDOS EJECUTADOS DESDE LA CONSOLA
         if(!(sender instanceof Player)){
             if(args.length >= 1 && args[0].equalsIgnoreCase("reload")){
                 sender.sendMessage(MessageUtils.getColoredMessage(plugin.getMainConfigManager().getPrefix() + plugin.getMainConfigManager().getPluginReload()));
@@ -45,7 +44,6 @@ public class MainCommand implements CommandExecutor, TabCompleter {
             return true;
         }
 
-        //COMANDOS EJECUTADOS DESDE EL JUGADOR
         Player player = (Player) sender;
 
         if (!player.hasPermission("clearlagplus.admin")) {
