@@ -4,6 +4,7 @@ import clp.zkaleejoo.commands.MainCommand;
 import clp.zkaleejoo.config.MainConfigManager;
 import clp.zkaleejoo.listeners.EntityListener;
 import clp.zkaleejoo.managers.TaskManager;
+import clp.zkaleejoo.utils.UpdateChecker;
 
 import org.bstats.bukkit.Metrics;
 import org.bukkit.Bukkit;
@@ -65,16 +66,19 @@ public class ClearLagPlus extends JavaPlugin {
     }
 
     private void checkUpdates() {
-    if (!mainConfigManager.isUpdateCheckEnabled()) return;
-    new clp.zkaleejoo.utils.UpdateChecker(this, 122239).getVersion(version -> {
-        if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
-            getLogger().info("You are using the latest version!");
-        } else {
-            this.latestVersion = version;
-            getLogger().warning("A new version is available: " + version);
-        }
-    });
-}
+    if (!getMainConfigManager().isUpdateCheckEnabled()) return;
+
+        new UpdateChecker(this).getVersion(version -> { 
+            if (this.getDescription().getVersion().equalsIgnoreCase(version)) {
+                getLogger().info("You are using the latest version!");
+            } else {
+                this.latestVersion = version;
+                getLogger().warning("A new version is available: " + version);
+                getLogger().warning("Download it at: https://modrinth.com/plugin/clearlag+"); 
+            }
+        });
+    }
+
 
     public String getLatestVersion() { return latestVersion; }
 }
