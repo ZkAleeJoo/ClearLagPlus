@@ -2,30 +2,42 @@ package clp.zkaleejoo.utils;
 
 import org.bukkit.Bukkit;
 import clp.zkaleejoo.ClearLagPlus;
-import java.io.IOException;
-import java.io.InputStream;
-import java.net.URI;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.Scanner;
 import java.util.function.Consumer;
 
 public class UpdateChecker {
     private final ClearLagPlus plugin;
-    private final int resourceId;
+    private final String slug = "clearlag+"; 
 
-    public UpdateChecker(ClearLagPlus plugin, int resourceId) {
+    public UpdateChecker(ClearLagPlus plugin) {
         this.plugin = plugin;
-        this.resourceId = resourceId;
     }
 
     public void getVersion(final Consumer<String> consumer) {
         Bukkit.getScheduler().runTaskAsynchronously(this.plugin, () -> {
-            try (InputStream inputStream = URI.create("https://api.spigotmc.org/legacy/update.php?resource=" + this.resourceId).toURL().openStream(); 
-                 Scanner scanner = new Scanner(inputStream)) {
-                if (scanner.hasNext()) {
-                    consumer.accept(scanner.next());
+            try {
+                URL url = new URL("https://api.modrinth.com/v2/project/" + slug + "/version");
+                HttpURLConnection connection = (HttpURLConnection) url.openConnection();
+                connection.setRequestProperty("User-Agent", "ClearLagPlus/UpdateChecker/" + plugin.getDescription().getVersion());
+                
+                try (Scanner scanner = new Scanner(new InputStreamReader(connection.getInputStream()))) {
+                    StringBuilder response = new StringBuilder();
+                    while (scanner.hasNextLine()) {
+                        response.append(scanner.nextLine());
+                    }
+                    
+                    String json = response.toString();
+                    java.util.regex.Matcher matcher = java.util.regex.Pattern.compile("\"version_number\":\"([^\"]+)\"").matcher(json);
+                    
+                    if (matcher.find()) {
+                        consumer.accept(matcher.group(1)); 
+                    }
                 }
-            } catch (IOException exception) {
-                plugin.getLogger().info("The updates could not be verified: " + exception.getMessage());
+            } catch (Exception exception) {
+                plugin.getLogger().info("No new updates were found" + exception.getMessage());
             }
         });
     }
